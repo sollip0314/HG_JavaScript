@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // JSON.stringify() : JavaScript 값 or 객체 -> JSON(JavaScript Object Notation) 문자열로 반환
+    // JSON.stringify(value, replacer, space)
+    
+    // 1. 기본 사용
+    const user = {
+      id: 1,
+      name: "Alice",
+      isAdmin: false
+    };
+
+    const jsonString = JSON.stringify(user);
+    // 결과: '{"id":1,"name":"Alice","isAdmin":false}'
+
+
+    // 2. space 인수로 가독성 향상
+    const data = { a: 1, b: [2, 3] };
+    const prettyJson = JSON.stringify(data, null, 2);
+
+
+    // 3. 배열을 사용한 속성 필터링
+    const person = {
+      name: "Bob",
+      age: 30,
+      secret: "shhh"
+    };
+    
+    const filteredJson = JSON.stringify(person, ["name", "age"]);   // name과 age 속성만 포함
+    // 결과: '{"name":"Bob","age":30}'
+
+
+    // 4. 함수를 사용한 값 변경
+    const product = {
+      id: "P101",
+      price: 50,
+      details: {
+        category: "Gadget"
+      }
+    };
+
+    const modifiedJson = JSON.stringify(product, (key, value) => {
+      // 'price' 키의 값만 두 배로 변경
+      if (key === 'price') {
+        return value * 2;
+      }
+      return value;
+    });
+    // 결과: '{"id":"P101","price":100,"details":{"category":"Gadget"}}'
+
+
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

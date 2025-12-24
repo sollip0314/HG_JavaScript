@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      //https://www.youtube.com/watch?v=ByKGf9h9Qy0&list=PLBXuLgInP-5kxpAKy2DNXoebCse2grHjl&index=44
+      const h1_tag = document.createElement('h1')
+      document.body.appendChild(h1_tag)
+
+      h1_tag.style.userSelect = 'none';
+
+      let count = 0
+      h1_tag.innerText = `클릭 횟수 : ${count}`
+      
+      h1_tag.addEventListener('click', () => {
+        count++
+        h1_tag.innerText = `클릭 횟수 : ${count}`
+      })
+      
+    })
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

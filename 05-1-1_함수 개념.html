@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    //선언함수
+    function fx(){
+      console.log(`선언적 함수입니다.`)
+    }
+
+    // 익명함수① : 함수이름이 생략됨
+    const fx1 = function(a, b) {
+      return a + b;
+    };
+
+    // 익명함수② (function 대신 => 사용)
+    const fx2 = (a, b) => {
+      return a + b;
+    };
+
+    // 문법단축 : 매개변수가 하나일때 괄호()를 생략할 수 있다.
+    const square = x => {
+      return x * x;
+    };
+
+    //본문이 단일 표현식이고 return만 할 때: 중괄호 {}와 return 키워드를 모두 생략할 수 있으며, 표현식의 결과가 자동으로 반환됩니다 (암시적 반환)
+    // 위 add 함수를 더 짧게
+    const add = (a, b) => a + b;
+    // 위 square 함수를 더 짧게
+    const square2 = x => x * x;
+
+    //객체를 반환할 때: 중괄호를 {} 함수 본문으로 인식하는 것을 방지하기 위해, 반환하려는 객체를 **소괄호 ()**로 감싸야 합니다.
+    const createObject = (name, age) => ({ name: name, age: age });
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

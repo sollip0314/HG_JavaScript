@@ -1,0 +1,26 @@
+#JSON
+JavaScript Object Notation
+
+{
+  "color" : "red",
+  "message" : "안녕하세요!"
+}
+
+# 규정
+1. 키는 문자열만!
+2. 문자열은 반드시 큰따옴표!
+
+# JSON 객체
+JSON.stringify() : 객체 -> JSON
+JSON.parse()     : JSON -> 객체
+
+const object = {
+  color : "red",
+  message : "안녕하세요"
+}
+
+let var_json = JSON.stringify(object)
+
+const other = JSON.parse(var_json)
+other.colorother.message
+

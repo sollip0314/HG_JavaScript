@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    /*
+    document.createElement('태그명')
+    document.appendChild('태그명')
+    document.removeChild('태그명')
+    문서객체.parentNode.removechild(문서객체)
+
+    document.querySelector()
+    document.querySelectorAll()
+
+    */
+    //https://www.youtube.com/watch?v=k9ZXWAh2Hj0&list=PLBXuLgInP-5kxpAKy2DNXoebCse2grHjl&index=43
+    
+   document.addEventListener('DOMContentLoaded', () => {
+    const divA = document.querySelector('#first') // id 속성이 first인 태그를 선택합니다.
+    const divB = document.querySelector('#second')
+    const moving_tag = document.createElement('h1')      // h1 태그를 생성합니다.
+    moving_tag.textContent = '이동하는 태그'
+
+    // 서로 번갈아가면서 실행하는 함수를 구현합니다.
+    const toFirst = () => {
+      divA.appendChild(moving_tag)     // h1을 divA에 추가합니다.
+      setTimeout(toSecond, 1000)
+    }
+
+    const toSecond = () =>{
+      divB.appendChild(moving_tag)
+      setTimeout(toFirst, 3000)
+    }
+
+    toFirst()
+    
+    /*
+    const array = [
+      document.querySelector('#first'),
+      document.querySelector('#second')
+    ]
+    let 카운터 = 0
+    const fun = () => {
+      array[카운터 % 2].appendChild(header)
+    }
+    setInterval(fun, 1000)
+    fun()
+    */
+   })
+  </script>
+</head>
+<body>
+  <div id = "first">
+    <h1> 첫 번째 div 태그 내부</h1>
+  </div>
+  <hr>
+  <div id="second">
+    <h1> 두 번째 div 태그 내부</h1> 
+  </div>
+</body>
+</html>

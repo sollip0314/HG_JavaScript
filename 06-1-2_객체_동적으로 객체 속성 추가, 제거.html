@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    
+    const student = {}
+    student.이름 = '박순신'
+    student.취미 = '악기'
+    student.장래희망 = '기업가'
+    
+
+    // JSON.stringify
+    // → JavaScript 값을 JSON(JavaScript Object Notation) 형식의 문자열로 변환
+    // JSON.stringify(객체이름, null, 들여쓰기 칸수)
+    console.log(JSON.stringify(student, null, 2))
+
+    //delete 객체.속성
+    //→ 객체의 속성을 제거
+
+    const pet = {}
+    pet.이름 = "댕댕이"
+    pet.먹이 = "사료"
+    pet.악세사리 ="롱코드"
+    
+    delete pet.악세사리     // 객체 속성 제거
+
+    console.log(JSON.stringify(pet, null, 2))
+        
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

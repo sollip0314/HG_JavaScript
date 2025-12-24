@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+    배열은 map(), forEach() 등의 함수를 가진다.
+    map() 메소드 : 콜백 함수에서 리턴한 값으로 새로운 배열을 만드는 함수다.
+    */
+    let numbers = [1, 3, 5, 7, 9]
+
+    // numbers = numbers.map(function (value){
+    numbers = numbers.map(function (value, index, array){
+      return value * value
+    })
+
+    //numbers.forEach(console.log)
+    console.log(numbers)
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

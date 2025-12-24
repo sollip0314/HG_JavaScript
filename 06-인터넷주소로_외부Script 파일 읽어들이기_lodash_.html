@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  
+  <script src = "https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <!--<script src="lodash.js"></script>-->
+  <script>
+    // https://www.youtube.com/watch?v=PMGZE_eNJag&list=PLBXuLgInP-5kxpAKy2DNXoebCse2grHjl&index=38
+    const books = [{
+      name : '혼자 공부하는 파이썬',
+      price : 18000,
+      publisher : '한빛미디어'
+    },{
+      name : 'HTML5 웹 프로그래밍 입문',
+      price : 26000,
+      publisher : '한빛아카데미'
+    },{
+      name : '머신러닝 딥러닝 실전 개발 입문',
+      price : 30000,
+      publisher : '위키북스'
+    },{
+      name : '딥러닝을 위한 수학',
+      price : 25000,
+      publisher : '위키북스'
+    }]
+
+    const output = _.sortBy(books, (book) =>book.price)
+    //const output = _.sortBy(books, ['price'])
+    //const output = _.sortBy(books, ['publisher'], ['price'])
+    console.log(JSON.stringify(output, null, 2))
+
+    /* Luxon과 date-fns 처럼 날짜와 시간ㄴ을 쉽게 다루는 라이브러리, Handsontable처럼 웹 페이지에 스프레드시트를 출력하는 라이브러리
+     구글에서 popular javascript library 2020 으로 검색하면 다양한 라이브러리들이 나온다.
+    */
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

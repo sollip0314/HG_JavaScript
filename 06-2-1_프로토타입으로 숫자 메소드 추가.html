@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+  /*
+
+  기본자료형 : Number,String,  Boolean
+  "안녕하세요".anchor('greeting')
+  '안녕하세요'.bold()
+
+  원래 기본 자료형은 속성과 메소드를 가질 수 없습니다.
+  하지만 자바스크립트는 사용의 편리성을 위해서 기본 자료형의 속성과 메소드를 호출할 때(기본 자료형 뒤에 온점을 찍고 무언가 하려고 하면)
+  일시적으로 기본 자료형을 객체로 승급시킵니다. 그래서 속성과 메소드를 사용할 수 있습니다.
+  */
+
+  /* 프로토타입으로 숫자 메소드 추가하기*/
+
+  const h = '안녕하세요'
+  console.log(h)
+  h.sample = 10
+  console.log(h.sample) // ★★★ 기본자료형에는 속성과 메소드를 추가로 가질수 없다. ★★
+
+
+  Number.prototype.power = function(n = 2){
+    return this.valueOf() ** n
+    // return this ** n
+  }
+
+   
+  const a = 3
+  console.log(`a.power() : `, a.power())
+  console.log(`a.power() : `, a.power(3))
+  console.log(`a.power() : `, a.power(4))
+
+  Number.prototype.fnx = function(){
+    console.log("AAAA")
+  }
+  a.fnx()   
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

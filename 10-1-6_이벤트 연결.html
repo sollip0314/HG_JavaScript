@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React 기본 프레임</title>
+    
+    <!-- 리액트 사용 준비-->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- 리액트를 사용하는 코드 입력 -->
+    <script type="text/babel">
+      class Timer extends React.Component{
+        constructor(props){
+          super(props)
+          this.state = {
+            현재_시간 : new Date().toLocaleTimeString()
+           }
+         }
+
+         render(){
+          return <h1>{this.state.현재_시간}</h1>
+         }
+
+         // 컴포넌트가 화면에 추가될때 아래 메소드가 자동으로 호출된다.
+         componentDidMount(){
+          this.timerId = setInterval(() => {
+            this.setState( {현재_시간 : new Date().toLocaleTimeString()} )
+          }, 1000)
+         }
+
+         // 컴포넌트가 화면에서 제거될때 아래 메소드가 자동으로 호출
+         componentWillUnMount(){
+          clearInterval(this.timerId)
+         }          
+      }
+
+      class App extends React.Component{
+        constructor(props){
+          super(props)
+          this.이벤트핸들러 = this.이벤트핸들러.bind(this) 
+          // 이벤트핸들러와 같은 메서드를 일반 함수처럼 호출하면, JavaScript는 함수 내부의 this를 어떤 객체와도 연결하지 않습니다.
+          // 이 말은 결국 일반 함수를 호출할때 호출될 당시 this를 자기 자신 인스턴스로 인식하지 않는 문제가 생길 수 있다는 의미.
+          this.state = { 숫자 : 0 }
+        }
+        render(){
+          return <h1 onClick = {this.이벤트핸들러}>{this.state.숫자}번 클릭합니다!</h1>
+        }
+        이벤트핸들러(event){
+          this.setState({
+            숫자 : this.state.숫자 + 1
+          })
+        }
+      }        
+
+      // 출력하기
+      const 컴포넌트 = <App />
+      const 컨테이너 = document.getElementById('root')
+      ReactDOM.render(컴포넌트, 컨테이너)      
+    </script>
+</body>
+</html>

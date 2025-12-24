@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    /*
+      속성 조작하기
+    - 문서객체.setAttribute(속성이름, 값) : 특정 속성에 값을 지정
+    - 문서객체.getAttribute(속성이름) : 특정 속성을 추출
+    */
+    document.addEventListener('DOMContentLoaded', () => {
+      const rects = document.querySelectorAll('.rect')  // .클래스명    을 통해 특정 클래스 요소를 선택
+      
+      
+      rects.forEach((elem, index) => {
+        const width = (index + 1) * 100
+        const src = `http://placecats.com/${width}/250`
+        elem.setAttribute('src', src) // src 속성에 값을 지정 합니다.
+        // rect.src = src
+      })
+    })
+  </script>
+</head>
+<body>
+  <img class="rect">
+  <img class="rect">  
+  <img class="rect">
+  <img class="rect">
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+   document.addEventListener('DOMContentLoaded', () =>{
+    const aa = document.querySelectorAll('h1')  // 태그 이름으로 요소를 선택
+    aa.forEach((temp) =>{
+      temp.textContent = 'HELLOWORLD'
+      temp.style.color = 'white'
+      temp.style.backgroundColor = 'black'
+      temp.style.padding = '10px'
+    })
+   })
+  </script>
+</head>
+<body>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>   
+</body>
+</html>

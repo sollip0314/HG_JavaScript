@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    document.addEventListener('DOMContentLoaded', () =>{
+      let 현재값 = 0  
+      let 변환상수 = 0 // 초기값 0으로 설정 (아래에서 select의 실제 값으로 덮어쓸 예정)
+
+      const input = document.querySelector('input')
+      const span = document.querySelector('span')
+      const select = document.querySelector('select')
+
+      // 1. 초기 변환상수를 select의 현재 선택된 값으로 설정 (유연성 확보)
+      변환상수 = Number(select.value); 
+  
+      const calculate = () =>{
+        // 2. 입력값 유효성 검사 (NaN 방지)
+        const inputValue = Number(input.value); 
+    
+        // 입력값이 숫자가 아니거나 (NaN), 입력창이 비어있다면 (0)
+        // 계산을 0으로 처리하거나, 실제 숫자만 계산하도록 필터링
+        if (isNaN(inputValue)) {
+          span.textContent = '0.00'; // NaN이 입력되면 0.00 출력
+          return;
+        }
+    
+        // 현재값 업데이트 (유효성 검사 후)
+        현재값 = inputValue;
+    
+        // 결과 계산 및 출력
+        span.textContent = (현재값 * 변환상수).toFixed(2);  // 소수점 2번째 자리까지 출력
+      }
+
+      // select 이벤트 핸들러는 그대로 유지
+      select.addEventListener('change', (event) => {
+        // select.value를 직접 사용하면 더 간결함
+        변환상수 = Number(event.currentTarget.value); 
+        /*        
+        const options = event.currentTarget.options;
+        const index = options.selectedIndex; // 중복 접근 제거
+        변환상수 = Number(options[index].value);
+        */
+
+        calculate();
+      })
+
+      // input 이벤트 핸들러는 keyup 대신 input을 사용하는 것이 일반적이며, calculate에 유효성 검사 로직 추가
+      input.addEventListener('input', calculate);
+      
+      // 페이지 로드 시 초기값 0으로 한 번 계산하여 <span>을 설정
+      calculate(); 
+
+});
+  </script>
+</head>
+<body>
+  <input type="text"> cm =
+  <span></span>
+  <select>
+    <option value = "10">mm</option>
+    <option value = "0.01">m</option>
+    <option value = "0.393701">inch</option>
+  </select>
+</body>
+</html>

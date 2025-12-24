@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+    JSON.stringify : 객체 -> JSON
+    */
+    const data = [{name : '월가의 영웅',
+      price : 20000,
+      publisher : '국일증권경제연구소'
+    },{
+      name:'현명한투자자',
+      price : 15000,
+      publisher : '국일증권경제연구소'
+    }]
+
+    console.log(JSON.stringify(data))
+    console.log(JSON.stringify(data, null, 2))
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

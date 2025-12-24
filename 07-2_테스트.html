@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    document.addEventListener('DOMContentLoaded', () =>{
+      document.body.addEventListener('keydown', (obj) =>{
+        //기존의 모든 내용을 지우고(Clear) 그 자리에 새로운 내용을 대체(Replace) 하는 방식으로 작동//기존의 모든 내용을 지우고(Clear) 그 자리에 새로운 내용을 대체(Replace) 하는 방식으로 작동
+        document.body.innerHTML=`<h2>keydown ${obj.code}</h2>`
+      })
+      document.body.addEventListener('keyup', (obj) =>{
+        //기존의 모든 내용을 지우고(Clear) 그 자리에 새로운 내용을 대체(Replace) 하는 방식으로 작동//기존의 모든 내용을 지우고(Clear) 그 자리에 새로운 내용을 대체(Replace) 하는 방식으로 작동
+        document.body.innerHTML=`<h2>keyup ${obj.code}</h2>`
+      })
+
+    
+    })
+  </script>
+</head>
+<body>
+  <h1>안녕하세요</h1>
+</body>
+</html>

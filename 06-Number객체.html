@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /* Number 객체의 기본 메소드 
+       toFixed()
+    */
+    const a = 123.12345
+    console.log(a.toFixed(1)) // 소수점 1자리까지만 출력
+    console.log(a.toFixed(2)) // 소수점 2자리까지만 출력
+
+    const b = Number('숫자로 변환할 수 없는 경우')
+
+    // 숫자인지 확인
+    console.log(Number.isNaN(b))
+
+    const c = 10 / 0
+
+    console.log(c)
+
+    console.log(Number.isFinite(c))
+    console.log(Number.isFinite(1))
+        
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

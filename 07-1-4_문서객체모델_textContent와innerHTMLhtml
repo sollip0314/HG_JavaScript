@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    document.addEventListener('DOMContentLoaded', () =>{
+      const header1 = document.querySelector('#text1')
+      const header2 = document.querySelector('#text2')
+
+      console.log(header1.textContent)
+      console.log(header2.innnerHTML)
+
+      // 값을 넣는다
+      header1.textContent = '원하는<br>문자열'
+      header2.innerHTML = '원하는<br>문자열'
+    })
+  </script>
+</head>
+<body>
+  <h1 id = "text1">textContent 속성 기준 문자열</h1>
+  <h1 id = "text2">textContent 속성 기준 문자열</h1>
+</body>
+<body>
+  
+</body>
+</html>

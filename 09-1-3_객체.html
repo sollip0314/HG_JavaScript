@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 하나 더!
+    function 메일보내기({
+      발신인 = '사용자',
+      수신인 = '관리자',
+      내용 = '문제가 발생했음!'
+    } = {}){
+      console.log(`발신인 : ${발신인}`)
+      console.log(`수신인 : ${발신인}`)
+      console.log(내용)
+    }
+
+    메일보내기({
+      발신인 : '구름',
+      수신인 : '별',
+      내용 : '간식줘!'
+    })
+
+    // 메일보내기({})
+    메일보내기()
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

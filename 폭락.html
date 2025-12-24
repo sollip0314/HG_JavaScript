@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // Node.js 환경에서 사용되는 라이브러리 가정
+// const axios = require('axios');    // HTTP 요청을 보내기 위한 라이브러리
+// const cheerio = require('cheerio'); // HTML을 파싱하기 위한 라이브러리
+
+/**
+ * 네이버 신문 지면에서 특정 키워드를 포함하는 기사가 있는 URL을 찾는 함수 (개념 코드)
+ * @param {string} startDate 시작 날짜 (YYYYMMDD 형식)
+ * @param {string} endDate 종료 날짜 (YYYYMMDD 형식)
+ * @returns {Promise<string[]>} 조건에 맞는 URL 배열
+ */
+async function findPanicNewsURLs(startDate, endDate) {
+    const KEYWORDS = ["폭락", "붕괴", "패닉", "최악"];
+    const URL_BASE = "https://media.naver.com/press/009/newspaper?date=";
+    const foundURLs = [];
+
+    // 날짜를 생성하고 순회하는 로직 (실제 구현 필요)
+    let currentDate = new Date(startDate.slice(0, 4), startDate.slice(4, 6) - 1, startDate.slice(6, 8));
+    const end = new Date(endDate.slice(0, 4), endDate.slice(4, 6) - 1, endDate.slice(6, 8));
+
+    while (currentDate <= end) {
+        const dateString = formatDate(currentDate); // 날짜를 YYYYMMDD로 변환하는 함수 가정
+        const targetUrl = URL_BASE + dateString;
+        
+        //--- 1단계: 웹 페이지 HTML 가져오기 (실제 크롤링 단계) ---
+         try {
+             const response = await axios.get(targetUrl);
+             const $ = cheerio.load(response.data);
+        
+             // --- 2단계: 헤드라인 콘텐츠 분석 (CSS 선택자 필요) ---
+             // 'A1면', 'A2면' 등의 섹션에서 모든 기사 제목을 가져옴
+             let pageContent = '';
+             $('.news_article_title').each((i, el) => {
+                 pageContent += $(el).text() + ' ';
+             });
+        
+             // --- 3단계: 키워드 포함 여부 확인 ---
+             const isMatch = KEYWORDS.some(keyword => pageContent.includes(keyword));
+        
+             if (isMatch) {
+                 foundURLs.push(targetUrl);
+                 console.log(`[찾음] ${dateString}`);
+             }
+        
+         } catch (error) {
+             // console.error(`Failed to fetch or parse for ${dateString}:`, error.message);
+         }
+
+        // 다음 날짜로 이동
+        //currentDate.setDate(currentDate.getDate() + 1);
+    }
+
+    return foundURLs;
+}
+
+// --- 최종 결과 배열을 정의하는 부분 ---
+
+const startDate = "20200320";
+const endDate = "20200321";
+
+findPanicNewsURLs(startDate, endDate).then(resultURLs => {
+  const panicNewsURLs = resultURLs;
+  console.log("조건에 맞는 URL 배열:", panicNewsURLs);
+})
+.catch(err => console.error(err));
+
+
+// --- 순수한 자바스크립트 배열 구조만 제공 ---
+// (실행 가능한 결과가 아닌, 원하는 최종 데이터 구조)
+const panicNewsURLs = [
+    "https://media.naver.com/press/009/newspaper?date=20200321", // 예시: 코스피 폭락
+    // ... 실제 분석을 통해 채워진 다른 URL들
+];
+
+function formatDate(date) {
+  // 함수 로직
+  return new Date(date).toLocaleDateString();
+}
+
+console.log('--- 최종 결과 구조 ---');
+console.log(panicNewsURLs);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

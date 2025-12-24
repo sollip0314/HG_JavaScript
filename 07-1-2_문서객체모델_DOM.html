@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOMContentLoaded</title>
+  <script>
+    // https://www.youtube.com/watch?v=-oVDoTAy_P0&list=PLBXuLgInP-5kxpAKy2DNXoebCse2grHjl&index=40
+    // 위의 영상 8분을 보면 된다.
+    // addEventListener의 DOMContentLoaded를 사용하면 document.body.innerHTML을 body부분 안에 선언하지 않고 미리 코드를 작성할 수 있다.
+    // => document라는 문서 객체의 DOMContentLoaded 이벤트가 발생했을 때, 매개변수로 지정한 콜백 함수를 실행해라.
+    document.addEventListener('DOMContentLoaded', () =>{
+      // 문서 객체 조작 가능!
+      const h1 = (text) => `<h1>${text}</h1>`
+      document.body.innerHTML += h1('DOMContentLoaded 이벤트 발생')
+    })
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

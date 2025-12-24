@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () =>{
+            // 상수 정의: localStorage에 사용할 키(Key)를 상수로 지정하여 오타 방지 및 관리 용이
+            const STORAGE_KEY = 'userInput';
+
+            const color = localStorage.getItem('color')
+
+            
+
+            // DOM 요소 선택: 명확한 ID 셀렉터 사용 (querySelector('#id'))
+            const p = document.querySelector('#status-message') // <p> 태그에 ID를 추가했다고 가정
+            const input = document.querySelector('#user-input')
+            const button = document.querySelector('#clear-button')
+            const select = document.querySelector('select')
+            // const p = document.querySelector('p')
+
+            /*
+             * 1. 초기 로딩 시 저장된 값 불러오기
+             * localStorage: 웹 브라우저에 데이터를 영구적으로 저장하는 객체 (Key-Value 쌍)
+             */
+            const savedValue = localStorage.getItem('키'); // getItem(key): 저장된 값을 추출
+            // const saveValue = localStorage.getItem('input') // getItem : 저장된 값을 추출
+            // const saveValue = localStorage.input
+
+            if (savedValue) {
+                // 저장된 값이 있으면 Input에 값 설정 및 상태 메시지 업데이트
+                input.value = savedValue;
+                p.textContent = `✅ 이전 실행 때 저장된 마지막 값: "${savedValue}"`;
+            } else {
+                p.textContent = '정보가 저장되어 있지 않습니다.';
+            }
+
+            if(color != null){
+                document.body.style.backgroundColor = color
+                select.value = color
+            }else{
+                document.body.style.backgroundColor = 'red'
+            }
+
+            /*
+             * 2. Input 값 변경 감지 및 실시간 저장 (쓰기)
+             */
+            input.addEventListener('keyup', (event) => {
+                const value = event.currentTarget.value;
+                // setItem(key, value): 웹 스토리지에 데이터 저장 (Key-Value)
+                localStorage.setItem('키', value); 
+                // localStorage.setItem('input', value)
+                // localStorage.input = value
+                p.textContent = `📝 현재 입력 값: "${value}" (자동 저장됨)`;
+                
+            });
+
+
+            /*
+             * 3. 버튼 클릭 시 저장된 값 삭제
+             */
+            button.addEventListener('click', () => {
+                // **주의**: localStorage.clear()는 이 도메인의 모든 데이터를 지웁니다.
+                // 특정 키의 값만 지우려면: localStorage.removeItem(STORAGE_KEY) 사용이 권장됩니다.
+                localStorage.removeItem('키'); 
+                
+                // UI 초기화
+                input.value = '';
+                p.textContent = '🗑️ 저장된 데이터가 삭제되었습니다.';
+                input.focus(); // 사용 편의를 위해 입력란에 포커스 이동
+            });
+
+            select.addEventListener('change', () => {
+                const color = select.options[select.selectedIndex].value
+                document.body.style.backgroundColor = color;
+                localStorage.setItem('칼라', color)
+            })
+        });
+    </script>
+</head>
+<body>
+    <p id="status-message">저장된 값이 없습니다.</p>
+    <button id = "clear-button">지우기</button>
+    <label for="user-input">값 입력:</label>
+    <input type="text" id="user-input">
+
+    <select name="" id="">
+        <option value="red">빨간색</option>
+        <option value="blue">파란색</option>
+        <option value="green">초록색</option>
+    </select>
+</body>
+</html>

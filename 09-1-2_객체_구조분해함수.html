@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+  /*
+    function 메일보내기({발신인, 수신인, 내용}){
+      console.log(`발신인 : ${발신인}`)
+      console.log(`수신인 : ${수신인}`)
+      console.log(내용)
+    }
+  */
+
+    function isRequired(이름){ throw `${이름} 매개변수에 문제가 있습니다.` }
+
+    function 메일보내기({
+      발신인 = isRequired('발신인'), 
+      수신인 = isRequired('수신인'), 
+      //내용 = isRequired('내용')
+      내용 = '기본값'
+    }){
+      console.log(`발신인 : ${발신인}`)
+      console.log(`수신인 : ${수신인}`)
+      console.log(내용)
+    }
+
+    메일보내기({
+      발신인 : '구름',
+      수신인 : '별',
+      내욤 : '간식줘!'
+    })
+    
+    /*
+    function 메일보내기({
+      발신인 = '기본값',
+      수신인 = '기본값',
+      내용 = '기본값'
+    })
+      
+    */
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

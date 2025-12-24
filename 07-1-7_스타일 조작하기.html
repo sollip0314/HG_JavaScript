@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      //body 태그의 직계 자식(Direct Child)인 div 요소만을 선택합니다. input 요소가 다른 요소 안에 중첩되어 있다면 선택하지 않습니다.
+      const divs = document.querySelectorAll('body > div')
+
+      divs.forEach((element, index) =>{
+        console.log(element, index)
+        const val = index * 10
+        element.style.height = '10px' // 크기를 지정할 때는 반드시 단위를 함께 붙여줘야 합니다.
+        //element.style['height'] = '10px'
+        element.style.backgroundColor = `rgba(${val}, ${val}, ${val})`
+      })
+
+
+    })
+
+    /*
+    # 글자 조작
+      textContent
+      innerHTML
+    
+      # 속성 조작
+      setAttribute('이름', '값')
+      getAttribute('이름')
+      ! 표준에 있는 속성 → 그냥 입력!
+
+      # 스타일 조작
+      style.backgroundColor
+      style['background-color']
+      style['backgroundColor']
+
+      element.style['background-color'] = 'blue';
+      element.style['backgroundColor'] = 'blue';
+
+    */
+  </script>
+</head>
+<body>
+  <div></div><div></div><div></div><div></div><div></div><div></div>
+  <div></div><div></div><div></div><div></div><div></div><div></div>
+  <div></div><div></div><div></div><div></div><div></div><div></div>
+  <div></div><div></div><div></div><div></div><div></div><div></div>
+  <div></div><div></div><div></div><div></div><div></div><div></div>
+  <div></div><div></div><div></div><div></div><div></div><div></div>
+  <div></div><div></div><div></div><div></div><div></div><div></div>
+  
+
+  
+</body>
+</html>

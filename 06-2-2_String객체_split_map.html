@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 1. trim() : 문자열 공백 제거
+    const A = '              메세지 입력 공백 생김'
+    console.log(A)    
+    console.log(A.trim())
+
+    document.write('<br>')
+    
+
+
+    // 2. split() : 문자열을 매개변수로 잘라서 -> 배열 생성
+    let input = '일자, 달러, 앤, 유로\n01,1141.8, 1097.46, 1262.37\n02,1141.1, 1057.45, 1162.31\n03,1141.8, 1097.46, 1262.37\n04,1141.1, 1057.45, 1162.31'
+
+    input = input.split('\n') // 문자열 -> 배열  (datatype 바뀜)
+    console.log(input)
+
+    // map() 함수는 Array.prototype.map() 배열의 프로토 메서드
+    // 기능 : 배열을 순회하며 각 요소에 주어진 콜백 함수를 적용하고, 그 결과로 만들어진 새로운 요소들을 담은 새로운 배열을 반환하는 기능을 수행
+    input = input.map((line) => line.split(','))
+    console.log(input)
+    
+    console.log(JSON.stringify(input, null, 2))
+
+
+
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

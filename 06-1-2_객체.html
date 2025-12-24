@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    /*
+    배열 내부에 있는 값 : 요소(element)
+    
+    객체 내부에 있는 값 : 속성(property)
+    */
+    const object = {
+      // property
+      // Key : Value
+      number : 123,
+      string : '구름',
+      boolean : true,
+      boolean : true,
+      array : [1, 2, 3, 4, 5],
+
+      method : function() {}
+    }
+
+    const dog = {
+      name : '댕댕이',
+      eat : function(food){return `${this.name}가 ${food}를 먹습니다.`}
+    }
+
+    document.write(dog.eat('밥'))
+        
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

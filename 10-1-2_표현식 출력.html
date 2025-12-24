@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+
+    // 상수 선언하기
+    const 콘텐츠 = 'Yondaime'  
+    const 이미지주소 ='./Hokage.png'  //const 이미지주소 = 'https://img.wowtv.co.kr/nrcs/production/images/20251207/20251207_4cf280c7ea2a4b0cb9694f7ed2b86b19.jpg'
+    //const 이미지주소 = 'https://img.wowtv.co.kr/nrcs/production/images/20251207/20251207_4cf280c7ea2a4b0cb9694f7ed2b86b19.jpg'
+    const 스타일 ={ fontFamily : "Times New Roman", backgroundColor : 'yellow' }
+    const 배열 = [<li>사과</li>, <li>오렌지</li>, <li>바나나</li>]
+    const 핸들러 = () =>  alert('클릭했습니다!')
+    // onclick → onClick
+    // onchange → onChange
+    // onmousedown → on mouse down → on Mouse Down → onMouseDown
+
+    
+    // 컴포넌트와 컨테이너 생성하기
+    const component = <div onClick={핸들러}>
+      <h1 style = {스타일}>Hello {콘텐츠} Hokage</h1>
+      <img src={이미지주소} width="400" height="500"/>
+      <ul>{배열}</ul>
+    </div>
+
+    const container = document.getElementById('root')
+    // 출력하기
+    ReactDOM.render(component, container)
+  
+  </script>
+</body>
+</html>

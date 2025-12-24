@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    const userList = [
+      // 인덱스 0: 첫 번째 객체
+      { id: 101, name: 'Alice', role: 'Engineer' },
+      // 인덱스 1: 두 번째 객체
+      { id: 102, name: 'Bob', role: 'Designer' },
+      // 인덱스 2: 세 번째 객체
+      { id: 103, name: 'Charlie', role: 'Manager' }
+    ];
+
+    // 1. 첫 번째 객체에 접근 (인덱스 0 사용)
+    const firstUser = userList[0];
+    console.log(firstUser); 
+    // 출력: { id: 101, name: 'Alice', role: 'Engineer' }
+
+    // 2. 첫 번째 객체의 'name' 속성에 접근 (키 사용)
+    const firstName = userList[0].name;
+    console.log(firstName); 
+    // 출력: Alice
+
+    // 3. 두 번째 객체의 'role' 속성에 접근 (인덱스 1과 키 사용)
+    const secondUserRole = userList[1].role;
+    console.log(secondUserRole);
+    // 출력: Designer
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

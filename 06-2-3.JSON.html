@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    const data = [{
+      name : '혼자 공부하는 파이썬',
+      price : 15000,
+      publisher : '한빛미디어'
+    },{
+      name : 'HTML5 웹프로그래밍',
+      price : 26000,
+      publisher : '한빛미디어'
+    }]
+
+    
+
+    const json = JSON.stringify(data)
+    console.log(json)
+    console.log(JSON.stringify(data, null, 2))
+
+    // JSON -> 자바스크립트 객체
+    console.log(JSON.parse(json))
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

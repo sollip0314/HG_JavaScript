@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 정사각형 클래스
+    class Square{
+      #length
+
+      constructor(length){
+        this.setLength(length)
+      }
+
+      setLength(value){
+        if(value <= 0){
+          throw '길이가 0보다 커야 합니다.' // throw '문자열'을 사용하면 error는 단순히 문자열이므로, error.message는 undefined가 됩니다.
+          //throw new Error('길이가 0보다 커야 합니다.')  // 아래의 error.message를 사용하기 위해서는 new Error을 사용해야 한다. 그래야 에러객체.message, 에러객체.name 가 되어 사용할 수 있다.
+        }
+        this.#length = value
+      }
+
+      getLength(){
+        return this.#length
+      }
+
+      getperimter(){ return 4 * this.#length }
+      getArea() { return this.#length * this.#length}
+    }
+
+    // 클래스 사용하기
+    const square = new Square(10)
+    console.log(`한 변의 길이는 ${square.getLength()} 입니다`)
+
+    // 예외 발생시키기
+    try{
+      square.setLength(-10)
+    }catch(error){
+     // console.error(`오류 발생 : ${error.message}`)  <-- 왼쪽과 같이 코딩할려면 위에서 throw new Error로 선언해야 한다.
+     console.error(`오류 발생 : ${error}`)
+    }
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

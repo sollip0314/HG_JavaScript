@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 문서 객체를 가져옵니다.
+    document.addEventListener('DOMContentLoaded', () =>{
+      const input = document.querySelector('#todo')
+      const todoList = document.querySelector('#todo-list') 
+      const addButton = document.querySelector('#add-button')
+
+      // 변수를 선언합니다.
+      let keyCount = 0 
+
+      // 함수를 선언합니다.
+      const addTodo = () => {
+        // 입력 양식에 내용이 없으면 추가하지 않습니다.
+        if(input.value.trim() === ''){
+          alert('할 일을 입력해주세요.')
+          return
+        }
+
+        // 문서 객체를 설정합니다.
+        const added_div = document.createElement('div')
+        const checkbox = document.createElement('input')
+        const text = document.createElement('span')
+        const button = document.createElement('button')
+
+        // 문서 객체를 식별할 키를 생성합니다.
+        const key = keyCount
+        
+        keyCount += 1 
+
+        // 객체를 조작하고 추가합니다.
+        added_div.setAttribute('data-key', key)
+        added_div.appendChild(checkbox)
+        added_div.appendChild(text) 
+        added_div.appendChild(button)
+    
+        todoList.appendChild(added_div) 
+
+        //checkbox 객체를 조작합니다.
+        checkbox.type = 'checkbox'
+        checkbox.addEventListener('change', (event) =>{
+          added_div.style.textDecoration = event.target.checked? 'line-through' : ''
+        })
+
+        text.textContent = input.value
+    
+        // button 객체를 조작합니다.
+        button.textContent = '제거하기'
+        button.addEventListener('click', () => {
+          removeTodo(key)
+        })
+
+        // 입력 양식의 내용을 비웁니다.
+        input.value = ''
+      }
+
+      // removetodo 함수도 removeTodo로 통일하여 사용하는 것이 좋습니다.
+      const removeTodo = (key) => {
+        // 식별 키로 문서 객체를 제거합니다.
+        const added_div = document.querySelector(`[data-key="${key}"]`)
+        todoList.removeChild(added_div)
+      }
+
+      // 이벤트 연결
+  addButton.addEventListener('click', addTodo)
+  input.addEventListener('keyup', (event) =>{
+    const ENTER = 13
+    if(event.keyCode === ENTER){
+      addTodo()
+    }
+  })
+})
+  </script>
+</head>
+<body>
+  <h1>할 일 목록</h1>
+  <input id="todo">
+  <button id="add-button">추가하기</button>
+  <div id="todo-list"></div>
+</body>
+</html>

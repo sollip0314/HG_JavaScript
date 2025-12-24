@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+    요소에 접근할 때
+    - 배열 : 인덱스(index)
+    - 객체 : 키(key)
+    */
+
+    const product = {
+      제품명 : '맛있는 망고',
+      유형 : '당절임',
+      성분 : '망고, 설탕, 나트륨',
+      원산지 : '필리핀'
+    }
+    
+    document.write(product['제품명'])
+    document.write('<br>')
+    document.write(product['성분'])
+    document.write('<br><br>')
+
+    // 위의 표현을 아래와 같이 할수도 있다.
+    document.write(product.제품명)
+    document.write('<br>')
+    document.write(product.성분)
+    document.write('<br>')
+
+  
+    
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

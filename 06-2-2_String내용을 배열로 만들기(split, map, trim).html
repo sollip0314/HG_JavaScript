@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    /*
+    (참고)
+    1. 원시 타입 (Primitive Type)
+    - 문자열(String), 숫자(Number), 불리언(Boolean), null 
+
+    2. 객체(Object Type)
+    - 배열(Array), 함수(Function), 날짜(Date)    
+    */
+   
+    let input = `일자,달러,앤,유로
+    02,1241.8,1197.46,1242.37
+    03,1131.8,1397.46,1222.37
+    04,1111.8,1497.46,1362.37
+    05,1241.8,1597.46,1272.37
+    `
+
+    // split('매개변수') :  매개변수 기준으로 나누어 배열에 저장 (String -> 배열)
+    input = input.split('\n')
+    console.log(input)
+
+
+    /*
+    map() : 원본 배열을 수정하지 않고 완전히 새로운 배열을 생성
+            사용하기 위해서는 인자(argument)로 콜백 함수(Callback Function)를 반드시 필요
+
+            array.map((element, index, array) => {
+              // 요소마다 실행할 로직
+              return newValue;
+            });
+    */
+    
+    // trim() : String 전용이며, 반환 값도 새로운 String 이다.
+    // split(매개변수) : String 객체가 사용할 수 있으며, 리턴 값으로 새로운 배열을 생성한다.
+
+    const result = input.map((ele)=>ele.trim().split(','))
+
+    console.log(JSON.stringify(result, null ,2))
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

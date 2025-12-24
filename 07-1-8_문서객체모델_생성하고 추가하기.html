@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // https://www.youtube.com/watch?v=k9ZXWAh2Hj0&list=PLBXuLgInP-5kxpAKy2DNXoebCse2grHjl&index=43
+
+   document.addEventListener('DOMContentLoaded', () => {
+    // 문서 객체 생성
+    const obj = document.createElement('h1')  // h1 태그 생성
+
+    // 생성한 태그 조작
+    obj.textContent = 'createElement로 만든 태그'
+   // object.setAttribute('data-custom', '사용자 정의 속성')
+    obj.style.color = 'yellow'
+    obj.style.backgroundColor = 'green'
+
+    const body = document.querySelector('body')
+
+    
+    // h1 태그를 body 태그 아래에 추가하기
+    document.body.appendChild(obj)  // 태그를 동적으로 body에 추가하기
+    // body.appendChild(object)
+
+    setTimeout(() =>{
+      object.parentNode.removeChild(obj) // 태그 제거하기
+      //위와 같은 의미 : document.body.removeChild(obj)   //body.removeChild(obj)
+    }, 2000) 
+
+    
+    
+    
+   })
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

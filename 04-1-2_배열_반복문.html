@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    const arr = ['우유 구매', '업무 메일 확인하기', '필라테스 수업']
+
+
+    // 1. for...of 루프 : 값 자체를 순회
+    for(const todo of arr){
+      console.log(`할 일 : ${todo}`)
+    }
+
+    // .entries()를 사용하여 [인덱스, 값] 쌍을 순회합니다.
+    for (const [index,
+     todo] of todos.entries()) {
+      console.log(`${index}번째 할 일 : ${todo}`);
+    }
+
+    /*
+    // 배열을 사용할때는 for ... in은 권장되지 않음
+    for(const i in todos){
+      console.log(`${i}번째 할 일 : ${todos[i]}`);
+    }
+    */
+
+
+    // 2. forEach() 메서드: 배열의 각 요소에 대해 콜백 함수를 실행
+    arr1.forEach((ele, index) => {
+      console.log(`${index}번째 할 일 : ${ele}`)
+    })
+
+    // 3. 표준 for 루프
+    for (let i = 0; i < todos.length; i++) {
+      console.log(`${i}번째 할 일 : ${todos[i]}`);
+    }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

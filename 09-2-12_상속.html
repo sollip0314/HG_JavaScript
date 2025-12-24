@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    class Rectangle{
+      constructor(width, height){
+        this.width = width
+        this.height = height
+      }
+      getArea() { return this.width + this.height }
+      getPerimeter() { return 2 * (this.width + this.height) }
+    }
+    // 자식 클래스 + 서브 클래스
+    class Square extends Rectangle{
+      constructor(width){
+        // super() // 부모 생성자 호출
+        super(width, width)
+      }
+    }
+
+    const react = new rectangle(20, 10)
+    console.log(`넓이 : ${rect.getArea()}`)
+    console.log(`둘레 : ${rect.getPerimeter()}`)
+
+    const sqauare = new Square(10)
+    console.log(`넓이 : ${sqauare.getArea()}`)
+    console.log(`둘레 : ${sqauare.getPerimeter()}`)
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

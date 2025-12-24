@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // HTML 태그를 쉽게 만들 수 있는 콜백 함수를 선언
+    const h1 = (text) => `<h1>${text}</h1>`
+  </script>
+  <script>
+    document.body.innerHTML += h1('A') // 웹페이지 열때, 이 부분은 아직 body 부분에 도달하지 못했기 때문에 실행 안됌
+    // body에 도착하지도 않았는데 body.innerHTML을 사용하여 나타내려고 하니 나타내지 못한다.
+    // 이때문에 등장한 것이 document.addEventListener('DOMContentLoaded, () =>{}) 이다 : 문서가 다 만들어지면 이 것을 실행해 주세요.
+    //document.body.innerHTML += '<h1>A</h1>'
+  </script>
+</head>
+<body>
+  <script>
+    document.body.innerHTML += h1('B')
+    //document.body.innerHTML += '<h1>B</h1>'
+  </script>
+  <h1>안녕하세요!</h1>
+  <script>
+    document.body.innerHTML += h1('C')
+  </script>
+  
+</body>
+</html>

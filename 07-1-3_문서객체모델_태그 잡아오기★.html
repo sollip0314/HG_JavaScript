@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // https://www.youtube.com/watch?v=L9QkNhMDcOg&list=PLBXuLgInP-5kxpAKy2DNXoebCse2grHjl&index=41
+    // 태그도 객체이다.
+    // document.addEventListener(DOMContentLoaded, 콜백함수) : 문서가 다 만들어질때 콜백 함수 내용을 실행해달라.
+    document.addEventListener('DOMContentLoaded', () =>{
+      const aa = document.querySelector('h1') // 이 html 문서 내에서 h1 태그와 일치하는 첫 번째 요소만 선택하여 반환합니다.
+      
+      const allHeadings = document.querySelectorAll('h1');
+      // allHeadings는 h1 태그 요소 두 개를 포함하는 NodeList가 됩니다.
+      // allHeadings[0]은 <h1>안녕하세요</h1>
+      // allHeadings[1]은 <h1>헬로우</h1>
+
+      // 텍스트와 스타일을 변경합니다.
+      aa.textContent = '안녕하세요' // document.querySelector('h1').textContent ='안녕하세요'
+      aa.style.color = 'white'
+      aa.style.backgroundColor = 'green'
+      aa.style.padding = '10px'
+      
+      // 태그 선택자
+      document.querySelector('h2').textContent = '이것이 h2의 내용입니다'   //(중요) textContent를 설정해야 실행하면 내용을 볼 수 있다.
+
+      // 태그 선택자
+      document.querySelector('h2').style.color = 'white'
+
+      // id 선택자
+      document.querySelector('#body1').style.backgroundColor = 'blue'
+
+      // 클래스 선택자
+      document.querySelector('.center.head').style.textAlign = 'center' // 클래스명으로 선택하려면 .클래스명 // 두 개 이상의 클래스명 할때는 ('.클래스명.클래스명') // 여기서 띄워쓰기 하면 안된다.
+
+      // 속성 선택자
+      //document.querySelector('[type]')
+      document.querySelector('[type=text]').style.borderRadius = '10px'
+
+      // 후손 선택자 // ex) body 아래의 input에 해당하는 첫번째 것을 잡아라.
+      // body 태그 안에 존재하는 모든 깊이의 input 요소를 선택합니다. 즉, input이 body의 직계 자식이든, 아니면 다른 요소 안에 중첩된 손주이든 상관없이 모두 포함합니다.작동 방식: body를 **조상(ancestor)**으로 가지고 있는 모든 input 요소를 찾습니다. querySelector이므로 일치하는 첫 번째 요소를 반환합니다.
+
+      document.querySelector('body input').style.backgroundColor = 'yellow'
+
+      // 모든 태그를 잡을때 사용
+      for(const element of document.querySelectorAll('input')){
+        element.style.backgroundColor = 'red'
+      }
+    })
+  </script>
+</head>
+<body>
+  <h1></h1>
+  <h2 id ="body1" class = "center head"></h2>   <!-- 두개 이상의 클래스를 선언하려면 class="클래스명 클래스명 ..."-->
+  <input type="text">
+  <input>
+</body>
+</html>

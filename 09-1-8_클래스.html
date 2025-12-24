@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // StudentList 클래스 정의
+    class StudentList {
+      // 생성자
+      constructor() {
+        this.list = [] // 학생 객체들을 저장할 배열
+      }
+
+      // add 메서드 정의
+      add(student) {
+        this.list.push(student)
+      }
+
+      // 추가: 전체 학생의 평균을 계산하는 메서드 등...
+    }
+
+    class Student{
+      // 생성자
+      constructor(이름, {국어, 영어, 수학, 과학}){
+        this.이름 = 이름
+        this.국어 = 국어
+        this.영어 = 영어
+        this.수학 = 수학
+        this.과학 = 과학
+      }
+      
+      // 메서드를 만드는 부분
+      getSum(){
+        return this.국어 + this.영어 + this.수학 + this.과학
+      }
+
+      getAverage(){
+        return this.getSum() / 4
+      }
+    }
+
+    const students = new StudentList() // 이제 StudentList가 정의되었으므로 객체 생성 가능
+
+    // 첫 번째 학생 추가 (생성자 호출 방식 수정)
+    students.add(new Student('구름', {국어 : 87, 영어 : 98, 수학 : 88, 과학 : 90}))   
+   
+    // 두 번째 학생 추가 (students 변수로 수정 및 생성자 호출 방식 수정)
+    //students.add(new Student({ 이름 : '별이', 국어: 92, 영어: 98,  수학: 96, 과학: 88}))
+    students.add(new Student('별이', {국어: 92, 영어: 98,  수학: 96, 과학: 88}))
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

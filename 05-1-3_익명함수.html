@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+    익명함수 : 함수 이름이 없는 함수로, 주로 **함수 표현식(Function Expression)**의 형태로 사용되거나, 콜백 함수처럼 일회성으로 사용될 때 정의됩니다.
+    - 특징 : ① 이름 x && function 키워드 사용
+             ② 이름 x && => 문법 사용
+    */
+
+    // 함수 표현식 (변수에 할당)
+    const multiply = function(a, b) { // 이름이 없는 함수
+      return a * b;
+    };
+
+    // 화살표 함수 형태 (가장 흔한 익명 함수 형태)
+    const subtract = (a, b) => { // 이름이 없는 함수
+      return a - b;
+    };
+
+    console.log(multiply(3, 5))    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
