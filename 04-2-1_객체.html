@@ -1,29 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>JS Object & Array Transformation</title>
   <script>
-    const person = {
-      name: '김철수',
-      age: 30,
-      city: '서울'
-    };
+    // 1. 기초 데이터 (객체 선언) {key : value}의 쌍
+    const user = { name: 'Elon Musk', age: 54 };
 
-    for (const key in person) {
-      console.log(`속성 이름(key): ${key}, 속성 값(value): ${person[key]}`);
+
+    // 2. [ Object -> for...in -> Processing ]
+    // 객체의 속성을 하나씩 순회하며 처리합니다.
+    for (const key in user) {
+      console.log(`속성 이름(key): ${key}, 속성 값(value): ${user[key]}`);
     }
 
-/*
-출력 결과:
-속성 이름(key): name, 속성 값(value): 김철수
-속성 이름(key): age, 속성 값(value): 30
-속성 이름(key): city, 속성 값(value): 서울
-*/
+
+    // 3. [ Object -> Object.keys() -> Array ]
+    // 객체의 "키"들만 뽑아 배열로 만듭니다.
+    const userKeys = Object.keys(user);
+    console.log(userKeys); // ['name', 'age']
+
+
+    // 4. [ Object -> Object.values() -> Array ]
+    // 객체의 "값"들만 뽑아 배열로 만듭니다.
+    const userValues = Object.values(user);
+    console.log(userValues); // ['Elon Musk', 54]
+
+
+    // 5. [ Object -> Object.entries() -> Array(2D) ]
+    // [키, 값] 형태의 쌍을 묶어 2차원 배열로 반환합니다.
+    const userEntries = Object.entries(user);
+    console.log(userEntries); // [['name', 'Elon Musk'], ['age', 54]]
+
+
+    // 6. [ Object + Object -> Object.assign() -> New Object ]
+    // 여러 객체의 속성을 합쳐 하나의 새로운 객체를 만듭니다.
+    const info1 = { name: 'Jiho' };
+    const info2 = { age: 40 };
+    const personInfo = Object.assign({}, info1, info2);
+    console.log(personInfo); // { name: 'Jiho', age: 40 }
+
+
+    // 7. [ Array -> .join() -> String ]
+    // 배열의 모든 요소를 연결해 하나의 문자열로 반환합니다.
+    const army = ['Sword', 'Shield', 'Arrow'];
+    const armyString = army.join(' / ');
+    console.log(armyString); // "Sword / Shield / Arrow"
+
+
+    // 8. [ String -> .split() -> Array ]
+    // 문자열을 특정 구분자로 나누어 배열로 만듭니다.
+    const strategy = "Plan,Action,Result";
+    const strategyArray = strategy.split(',');
+    console.log(strategyArray); // ["Plan", "Action", "Result"]
+
   </script>
 </head>
 <body>
-  
+  <h3>콘솔창(F12)에서 데이터가 변환되는 지략의 흐름을 확인하십시오.</h3>
 </body>
 </html>

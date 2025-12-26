@@ -13,18 +13,35 @@
 
     // boolean 타입 : true(참), false(거짓)
     if(1<2){
-      alert('1은 2보다 작습니다.')
+      console.log('1은 2보다 작습니다.')
+      //alert('1은 2보다 작습니다.')
     }
 
     if(1 > 2){
-      alert('1은 2보다 큽니다.')
+      console.log('1은 2보다 큽니다.')
+      //alert('1은 2보다 큽니다.')
     }
 
     // 변수 값 교환하기 : 구조 분해 할당
     let a = 1;
     let b = 2;
     [a, b] = [b, a];
-  </script>
+
+    // String -> .split() -> Array (Technical type: Object)
+    const sentence = "Hello, world";
+    const wordbs = sentence.split(',');
+    console.log(wordbs);  // ["Hello", " world"]
+    console.log(typeof wordbs);  // object
+
+
+
+
+
+
+
+
+
+  </script> 
 </head>
 <body>
   
