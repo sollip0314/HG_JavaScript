@@ -59,10 +59,18 @@
     ===================================================== */
     const fruits = ['사과', '수박', '딸기', '바나나'];
 
-    // [ Array -> .push() -> Mutated Array ] : 끝에 추가
-    fruits.push('망고');
+    fruits.push('망고');          // 끝에 추가
+    fruits.concat(['포도', '키위']); // ['사과', '수박', '딸기', '바나나', '포도', '키위']
+    fruits = [...fruits, ...['거봉', '샤인머스켓']]; // ['사과', '수박', '딸기', '바나나', '거봉', '샤인머스켓']
+    fruit.unshift('레몬');        // 시작에 추가 : ['레몬', '사과', '수박', '딸기', '바나나']
+
+
 
     // [ Array -> .splice() -> Mutated Array ] : 특정 위치 추가/제거
+    // splice(start)	전원 탈락	start 지점부터 배열 끝까지 모두 삭제
+    // splice(start, n)	부분 삭제	start부터 n개만큼 삭제
+    // splice(start, n, item)	교체	n개를 삭제하고 그 자리에 item 삽입
+    // splice(start, 0, item)삽입아무것도 삭제하지 않고 start 위치에 item 추가
     fruits.splice(1, 0, "귤"); // 1번 인덱스에 '귤' 추가
     fruits.splice(1, 2);      // 1번 인덱스부터 2개 제거
 
@@ -71,7 +79,9 @@
     const berryIndex = fruits.indexOf('딸기');
 
     // [ Array -> .pop() -> Removed Element ] : 끝 요소 추출후 반환 후 제거
+    // [Array -> .shift() -> Removed Element ] : 시작 요소 추출후 반환 후 제거
     const lastFruit = fruits.pop();
+    const firstFruit = fruits.shift(); // 시작 요소 추출후 반환 후 제거
 
     
 
@@ -82,7 +92,7 @@
     // [ Array -> .sort() -> Sorted Array ] : 정렬 (가나다/ABC순)
     const cities = ['서울', '대전', '대구', '부산', '제주도'];
     console.log(cities)	    // 원본 상태 : 
-    cities.sort();  : 가나다 순으로 정렬
+    cities.sort();  // 가나다 순으로 정렬
 
     // for문 : 정렬된 도시들을 하나씩 호출
     document.write('<h3>주요 도시 점검 목록</h3>');
@@ -107,6 +117,11 @@
     // [ Array -> .join() -> String ] : 배열을 문자열로 병합
     const cityListString = daeCities.join(', ');
 
+    const numbers = [1, 2, 3, 4, 5];
+    const squares = numbers.map(num => num * num); // [1, 4, 9, 16, 25]
+    const evens = numbers.filter(num => num % 2 === 0); // 짝수 필터링 [2, 4]
+
+    const sum = numbers.reduce((acc, curr) => acc + curr, 0); // 합계 15
 
     /* =====================================================
        6. 최신 문법 활용 (ES6+)
