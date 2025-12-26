@@ -93,6 +93,8 @@
     const cities = ['서울', '대전', '대구', '부산', '제주도'];
     console.log(cities)	    // 원본 상태 : 
     cities.sort();  // 가나다 순으로 정렬
+    //cities.sort((a, b) => a - b) // 오름차순 정렬
+    
 
     // for문 : 정렬된 도시들을 하나씩 호출
     document.write('<h3>주요 도시 점검 목록</h3>');
@@ -107,6 +109,7 @@
 
     // (참고). 역순 정렬
     //fruits.reverse();
+    //fruits.sort((a, b) => b - a) // 내림차순 정렬
 
     // [ Array -> .filter() -> New Array ] : 조건에 맞는 것만 추출
     const twoLetterCities = cities.filter(city => city.length === 2);
