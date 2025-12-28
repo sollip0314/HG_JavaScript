@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>삼국지 데이터 조작술</title>
+  <script>
+    /**
+     * [기본 진법] - 단순 수치 배열 조작
+     */
+    const army = [10, 20, 30, 40, 50];
+
+    // 1. filter: 선별된 정예병만 추출
+    const elites = army.filter(power => power > 25); 
+
+    // 2. map: 부대 전력 강화 (2배 증가)
+    const doubled = army.map(power => power * 2);
+
+    // 3. reduce: 전군 총합 전력 계산
+    const totalPower = army.reduce((acc, cur) => acc + cur, 0);
+
+
+    /**
+     * [심화 진법] - 객체 배열 조작 (영웅 데이터)
+     */
+    const heroes = [
+      { name: "제갈량", type: "지략가", power: 99 },
+      { name: "관우", type: "무장", power: 95 },
+      { name: "장비", type: "무장", power: 92 },
+      { name: "유비", type: "군주", power: 80 },
+      { name: "방통", type: "지략가", power: 97 }
+    ];
+
+    /* 1. 선별과 포착 (Filter, Find, FindIndex) */
+     // 전투력이 95 이상인 영웅만 선별 (필터링)
+    const vanguard = heroes.filter(hero => hero.power >= 95);
+    console.log("선봉대:", vanguard);
+
+    // 지략가들만 선별하여 이름만 추출 (체이닝 기법)
+    const strategistNames = heroes
+      .filter(h => h.type === "지략가")
+      .map(h => h.name);
+    console.log("지략가 명단:", strategistNames);
+
+    // 조건에 맞는 첫 번째 영웅 저격 (find)
+    const firstAce = heroes.find(h => h.type === "무장" && h.power >= 90);
+    console.log("발견된 첫 번째 에이스:", firstAce?.name);
+
+    // 특정 영웅의 위치 파악 (findIndex)
+    const yubiIndex = heroes.findIndex(h => h.name === "유비");
+    console.log(`유비 님은 현재 ${yubiIndex + 1}번째 대열에 계십니다.`);
+
+
+    /* 2. 변환과 보급 (Map) */    
+    // 모든 영웅의 전투력을 5씩 증강
+    const upgradedHeroes = heroes.map(hero => ({
+      ...hero, // 기존 속성 유지 (Spread 연산자 활용)
+      power: hero.power + 5
+    }));
+    console.log("강화된 영웅들:", upgradedHeroes);
+
+
+    /* 3. 집결과 보고 (Reduce) */    
+    // 우리 군의 총 전투력 합산
+    const totalArmyPower = heroes.reduce((acc, cur) => acc + cur.power, 0);   // Array.reduce((누적값, 현재값) => {...}, 초기값)}
+    console.log(`우리 군의 총 전투력은 ${totalArmyPower}입니다!`);
+
+
+    /* 4. 복합 전술 (Chain Operation) */    
+    // 최강의 무장 선발 로직
+    const bestWarriorName = heroes
+      .filter(h => h.type === "무장")      // 1. 무장 선별
+      .sort((a, b) => b.power - a.power) // 2. 강한 순 정렬
+      .map(h => h.name)[0];              // 3. 최상위 이름 추출
+    console.log(`승부처에 투입할 최강의 무장은 ${bestWarriorName}입니다.`);
+  </script>
+</head>
+<body>
+  <h1>콘솔 창(F12)을 열어 승전보를 확인하십시오, 주인님.</h1>
+</body>
+</html>
